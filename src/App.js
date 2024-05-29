@@ -1,20 +1,29 @@
+import { useState } from "react";
+
 export default function App() {
+  const [bill, setBill] = useState(0);
   return (
     <div className="app">
-      <BillInput>How much was the bill?</BillInput>
+      <BillInput bill={bill} setBill={setBill}>
+        How much was the bill?
+      </BillInput>
       <TipPercentage>How did you like the service?</TipPercentage>
       <TipPercentage>How did your friend like the service?</TipPercentage>
-      <Output />
+      <Output bill={bill} />
       <ResetButton />
     </div>
   );
 }
 
-function BillInput({ children }) {
+function BillInput({ bill, setBill, children }) {
   return (
     <div className="bill">
       <span>{children}</span>
-      <input type="number"></input>
+      <input
+        type="number"
+        value={bill}
+        onChange={(e) => setBill((b) => (b = e.target.value))}
+      ></input>
     </div>
   );
 }
@@ -33,10 +42,10 @@ function TipPercentage({ children }) {
   );
 }
 
-function Output() {
+function Output({ bill }) {
   return (
     <div className="output">
-      <strong>You pay $105 ($100 + $5 tip)</strong>
+      <strong>You pay ${bill} ($0 + $0 tip)</strong>
     </div>
   );
 }
