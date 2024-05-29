@@ -26,8 +26,16 @@ export default function App() {
       <TipPercentage tip={tip2} setTip={setTip2}>
         How did your friend like the service?
       </TipPercentage>
-      <Output bill={bill} calculatedTip={calculatedTip} totalBill={totalBill} />
-      <ResetButton handleReset={handleReset} />
+      {bill > 0 && (
+        <>
+          <Output
+            bill={bill}
+            calculatedTip={calculatedTip}
+            totalBill={totalBill}
+          />
+          <ResetButton handleReset={handleReset} />
+        </>
+      )}
     </div>
   );
 }
