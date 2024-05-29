@@ -5,6 +5,7 @@ export default function App() {
       <TipPercentage>How did you like the service?</TipPercentage>
       <TipPercentage>How did your friend like the service?</TipPercentage>
       <Output />
+      <ResetButton />
     </div>
   );
 }
@@ -38,4 +39,8 @@ function Output() {
       <strong>You pay $105 ($100 + $5 tip)</strong>
     </div>
   );
+}
+
+function ResetButton() {
+  return <button>Reset</button>;
 }
