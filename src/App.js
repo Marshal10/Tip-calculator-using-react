@@ -4,10 +4,17 @@ export default function App() {
   const [bill, setBill] = useState(0);
   const [tip, setTip] = useState(0);
   const [tip2, setTip2] = useState(0);
+
   const averageTipPercentage = (tip + tip2) / 2;
   const calculatedTip = (averageTipPercentage / 100) * bill;
   const totalBill = bill + calculatedTip;
-  console.log(averageTipPercentage, calculatedTip);
+
+  function handleReset() {
+    setBill(0);
+    setTip(0);
+    setTip2(0);
+  }
+
   return (
     <div className="app">
       <BillInput bill={bill} setBill={setBill}>
@@ -20,7 +27,7 @@ export default function App() {
         How did your friend like the service?
       </TipPercentage>
       <Output bill={bill} calculatedTip={calculatedTip} totalBill={totalBill} />
-      <ResetButton tip={tip} tip2={tip2} />
+      <ResetButton handleReset={handleReset} />
     </div>
   );
 }
@@ -55,7 +62,7 @@ function TipPercentage({ tip, setTip, children }) {
   );
 }
 
-function Output({ tip, tip2, bill, calculatedTip, totalBill }) {
+function Output({ bill, calculatedTip, totalBill }) {
   return (
     <div className="output">
       <strong>
@@ -65,6 +72,6 @@ function Output({ tip, tip2, bill, calculatedTip, totalBill }) {
   );
 }
 
-function ResetButton() {
-  return <button>Reset</button>;
+function ResetButton({ handleReset }) {
+  return <button onClick={handleReset}>Reset</button>;
 }
