@@ -1,6 +1,6 @@
 export default function App() {
   return (
-    <div className="App">
+    <div className="app">
       <BillInput>How much was the bill?</BillInput>
       <TipPercentage>How did you like the service?</TipPercentage>
       <TipPercentage>How did your friend like the service?</TipPercentage>
