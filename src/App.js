@@ -4,6 +4,7 @@ export default function App() {
       <BillInput>How much was the bill?</BillInput>
       <TipPercentage>How did you like the service?</TipPercentage>
       <TipPercentage>How did your friend like the service?</TipPercentage>
+      <Output />
     </div>
   );
 }
@@ -27,6 +28,14 @@ function TipPercentage({ children }) {
         <option value={10}>It was good(10%)</option>
         <option value={20}>Absolutely amazing!(20%)</option>
       </select>
+    </div>
+  );
+}
+
+function Output() {
+  return (
+    <div className="output">
+      <strong>You pay $105 ($100 + $5 tip)</strong>
     </div>
   );
 }
